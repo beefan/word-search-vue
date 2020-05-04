@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>word search</h1>
+    <h1>word list</h1>
     {{ words["0"] }}
   </div>
 </template>

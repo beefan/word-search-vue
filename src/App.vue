@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <word-list />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import WordList from "./components/WordList.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    'word-list': WordList
+  },
+  data () {
+    return {
+      grid: []
+    }
   }
 };
 </script>

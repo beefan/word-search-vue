@@ -34,7 +34,7 @@ const store = new Vuex.Store({
       state.grid = grid;
     },
     fillFound(state, found) {
-      state.found = found;
+      state.found = found.sort();
     }
   },
   actions: {

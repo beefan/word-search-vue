@@ -1,6 +1,6 @@
 <template>
   <div id="words-found">
-    <h1>words found</h1>
+    <h1>{{ title }} </h1>
     <b-container>
       <b-button class="word" v-for="(item, index) in found" v-bind:key="index" variant="info">
         {{ item.toUpperCase() }}
@@ -13,8 +13,10 @@
 export default {
   computed: {
     found() {
-      let found = this.$store.state.found
-      return found.sort()
+      return this.$store.state.found
+    },
+    title() {
+      return 'words found (' + this.found.length + ')'
     }
   }
 }

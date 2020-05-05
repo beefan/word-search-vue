@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     updateList() {
-      console.log('update list')
+      this.searchStr = ''
       this.findWords()
     },
     addRows() {
@@ -46,6 +46,7 @@ export default {
     },
     addCols() {
       console.log('add cols')
+      
     },
     addDiagnols() {
       console.log('add diags')

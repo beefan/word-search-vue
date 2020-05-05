@@ -1,7 +1,9 @@
 <template>
   <div id="search">
-    <div class="row" v-for="x in rows" v-bind:key="x" >
-      <div class="letter" v-for="x in rows" v-bind:key="x">H</div>
+    <div class="row" v-for="x in rows" v-bind:key="x">
+      <div class="letter" v-for="x in rows" v-bind:key="x">
+        {{'A'}}
+      </div>
     </div>
   </div>
 </template>
@@ -28,14 +30,18 @@ export default {
 <style>
 #search {
   border: 2px solid black;
+  display: flex;
+  flex-flow: column;
+  padding: 2%;
 }
-#search .row {
-  border: 2px solid black;
+.row {
   display: flex;
   flex-flow: row;
   flex-wrap: nowrap;
 }
-#search .row .letter {
-  border: 2px solid black;
+.letter {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>

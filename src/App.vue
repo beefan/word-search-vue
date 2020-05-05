@@ -1,8 +1,12 @@
 <template>
-  <div id="app">
-    <word-search />
-    <word-list />
-  </div>
+  <b-container id="app">
+    <b-row>
+      <word-search />
+    </b-row>
+    <b-row>
+      <word-list />
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -28,11 +32,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
 }
 </style>

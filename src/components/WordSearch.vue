@@ -2,7 +2,7 @@
   <div id="search">
     <div class="row" v-for="x in rows" v-bind:key="x">
       <div class="letter" v-for="x in rows" v-bind:key="x">
-        {{'A'}}
+        {{randomLetter()}}
       </div>
     </div>
   </div>
@@ -12,7 +12,8 @@
 export default {
   data () {
     return {
-      size: 10
+      size: 10,
+      grid: [[]]
     }
   },
   computed: {
@@ -23,16 +24,23 @@ export default {
       }
       return x
     }
+  },
+  methods: {
+    randomLetter() {
+      const abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      const index = Math.floor(Math.random()*abc.length)
+      return abc.charAt(index)
+    }
   }
 }
 </script>
 
 <style>
 #search {
-  border: 2px solid black;
   display: flex;
   flex-flow: column;
   padding: 2%;
+  border-radius: 3px;
 }
 .row {
   display: flex;
@@ -41,6 +49,7 @@ export default {
 }
 .letter {
   text-align: center;
+  width: 1%;
   margin-left: 10px;
   margin-right: 10px;
 }

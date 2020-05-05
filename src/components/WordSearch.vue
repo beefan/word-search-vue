@@ -51,7 +51,7 @@ export default {
       const abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
       const grid = [[]]
 
-      while (grid.length < 10 || grid[grid.length-1].length < 10) {
+      while (grid.length < this.size || grid[grid.length-1].length < this.size) {
         let index = Math.floor(Math.random()*abc.length)
         let rand = abc.charAt(index)
 

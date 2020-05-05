@@ -45,8 +45,18 @@ export default {
       }
     },
     addCols() {
-      console.log('add cols')
-      
+      let colStrings = this.grid[0]
+
+      for (let i = 1; i < this.grid.length; i++) {
+        colStrings = colStrings.map( (value, index) => {
+          return value+=this.grid[i][index]
+        });
+      }
+
+      for (const str of colStrings) {
+        this.searchStr += ' ' + str
+        this.searchStr += ' ' + this.reverse(str)
+      }
     },
     addDiagnols() {
       console.log('add diags')

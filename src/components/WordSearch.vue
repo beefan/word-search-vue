@@ -1,5 +1,14 @@
 <template>
   <div id="search">
+   <b-form-group label="grid size">
+      <b-form-radio-group
+        id="grid-settings"
+        v-model="size"
+        :options="gridOptions"
+        name="radio-options"
+        @input="fillGrid()"
+      ></b-form-radio-group>
+    </b-form-group>
     <div class="row" v-for="(row, index) in grid" v-bind:key="index">
       <div class="letter" v-for="(letter, index) in row" v-bind:key="index">
         {{ letter }}
@@ -12,7 +21,14 @@
 export default {
   data () {
     return {
-      size: 10
+      size: 10,
+      gridOptions: [
+          { text: '10', value: 10 },
+          { text: '15', value: 15 },
+          { text: '20', value: 20 },
+          { text: '25', value: 25 },
+          { text: '30', value: 30 },
+        ]
     }
   },
   created () {
@@ -68,5 +84,8 @@ export default {
   width: 1%;
   margin-left: 10px;
   margin-right: 10px;
+}
+.controls {
+  padding: 10px;
 }
 </style>

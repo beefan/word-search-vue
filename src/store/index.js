@@ -27,6 +27,9 @@ const store = new Vuex.Store({
     // increment (state) {
     //   state.count++
     // },
+    fillGrid(state, grid) {
+      state.grid = grid;
+    }
   },
   actions: {
     //like mutations but async allowed

@@ -2,7 +2,7 @@
   <div id="search">
     <div class="row" v-for="x in rows" v-bind:key="x">
       <div class="letter" v-for="x in rows" v-bind:key="x">
-        {{randomLetter()}}
+        {{ 'A' }}
       </div>
     </div>
   </div>
@@ -12,9 +12,11 @@
 export default {
   data () {
     return {
-      size: 10,
-      grid: [[]]
+      size: 10
     }
+  },
+  created () {
+   this.fillGrid()
   },
   computed: {
     rows() {
@@ -23,13 +25,29 @@ export default {
         x.push(i)
       }
       return x
+    },
+    grid() {
+      return this.$store.state.grid
     }
   },
   methods: {
-    randomLetter() {
+    fillGrid() {
       const abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      const index = Math.floor(Math.random()*abc.length)
-      return abc.charAt(index)
+      const grid = [[]]
+
+      while (grid.length < 10 || grid[grid.length-1].length < 10) {
+        let index = Math.floor(Math.random()*abc.length)
+        let rand = abc.charAt(index)
+
+        if (grid[grid.length-1].length < this.size) {
+          grid[grid.length - 1].push(rand)
+        } else {
+          grid.push([rand])
+        }
+      }
+      
+      console.log(grid)
+      this.$store.commit('fillGrid', grid)
     }
   }
 }

@@ -138,8 +138,7 @@ export default {
             found.push(word)
           }
       }
-      console.log('found words ')
-      console.log(found)
+
       // set the vuex store found variable
       this.$store.commit('fillFound', found)
     },

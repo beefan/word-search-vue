@@ -1,8 +1,8 @@
 <template>
   <div id="search">
-    <div class="row" v-for="x in rows" v-bind:key="x">
-      <div class="letter" v-for="x in rows" v-bind:key="x">
-        {{ 'A' }}
+    <div class="row" v-for="(row, index) in grid" v-bind:key="index">
+      <div class="letter" v-for="(letter, index) in row" v-bind:key="index">
+        {{ letter }}
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
     },
     grid() {
       return this.$store.state.grid
-    }
+    },
   },
   methods: {
     fillGrid() {
@@ -45,8 +45,6 @@ export default {
           grid.push([rand])
         }
       }
-      
-      console.log(grid)
       this.$store.commit('fillGrid', grid)
     }
   }

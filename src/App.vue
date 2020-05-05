@@ -1,7 +1,7 @@
 <template>
   <b-container id="app">
     <b-row>
-      <word-search />
+      <word-search @dataChanged="updateList()"/>
     </b-row>
     <b-row>
       <word-list />
@@ -21,8 +21,61 @@ export default {
   },
   data () {
     return {
-      grid: []
+      searchStr: ''
     }
+  },
+  computed: {
+    grid() {
+      return this.$store.state.grid
+    },
+    words() {
+      return this.$store.state.wordsList
+    },
+  },
+  methods: {
+    updateList() {
+      console.log('update list')
+      this.findWords()
+    },
+    addRows() {
+     for (const row of this.grid) {
+        const rowStr = row.join('')
+        this.searchStr += ' ' + rowStr
+        this.searchStr += ' ' + this.reverse(rowStr)
+      }
+    },
+    addCols() {
+      console.log('add cols')
+    },
+    addDiagnols() {
+      console.log('add diags')
+    },
+    findWords() {
+      let found = []
+
+      // add to searchStr all possible:
+      // rows, cols, diagnols
+      this.addRows()
+      this.addCols()
+      this.addDiagnols()
+      this.searchStr = this.searchStr.toLowerCase()
+
+      // iterate through every word in the dictionary
+      // and see if the word is in the search string
+      for (let prop in this.words) {
+          let word = this.words[prop]
+          if (this.searchStr.includes(word)) {
+            found.push(word)
+          }
+      }
+      console.log('found words ')
+      console.log(found)
+      // set the vuex store found variable
+      this.$store.commit('fillFound', found)
+    },
+    reverse(str) {
+      return str.split("").reverse().join("")
+    },
   }
 };
 </script>

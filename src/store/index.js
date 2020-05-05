@@ -7,7 +7,7 @@ const store = new Vuex.Store({
   state: {
     //variables here to maintain state of
     grid: [],
-    found: ["words", "found", "go", "here"],
+    found: [],
     wordsList: require("../assets/words-list.json")
   },
   getters: {

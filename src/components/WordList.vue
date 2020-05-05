@@ -1,33 +1,30 @@
 <template>
-  <div>
+  <div id="words-found">
     <h1>words found</h1>
-    <b-list-group horizontal>
-      <b-list-group-item v-for="(item, index) in found" v-bind:key="index" variant="info">
-        {{ item }}
-      </b-list-group-item>
-    </b-list-group>
+    <b-container>
+      <b-button class="word" v-for="(item, index) in found" v-bind:key="index" variant="info">
+        {{ item.toUpperCase() }}
+      </b-button>
+    </b-container>
   </div>
 </template>
 
 <script>
 export default {
   computed: {
-    words() {
-      return this.$store.state.wordsList
-    },
     found() {
-      return this.$store.state.found
+      let found = this.$store.state.found
+      return found.sort()
     }
-  },
-  methods: {
-
-  },
-  created() {
-
   }
 }
 </script>
 
 <style>
-
+#words-found {
+  margin-bottom: 20%;
+}
+.word {
+  margin: 5px;
+}
 </style>

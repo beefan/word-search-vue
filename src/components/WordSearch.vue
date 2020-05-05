@@ -62,6 +62,7 @@ export default {
         }
       }
       this.$store.commit('fillGrid', grid)
+      this.$emit('dataChanged')
     }
   }
 }

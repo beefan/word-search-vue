@@ -7,7 +7,7 @@ const store = new Vuex.Store({
   state: {
     //variables here to maintain state of
     grid: [],
-    found: [],
+    found: ["words", "found", "go", "here"],
     wordsList: require("../assets/words-list.json")
   },
   getters: {
@@ -17,6 +17,9 @@ const store = new Vuex.Store({
     },
     getWords: state => {
       return state.wordsList;
+    },
+    getFound: state => {
+      return state.found;
     }
   },
   mutations: {
@@ -29,6 +32,9 @@ const store = new Vuex.Store({
     // },
     fillGrid(state, grid) {
       state.grid = grid;
+    },
+    fillFound(state, found) {
+      state.found = found;
     }
   },
   actions: {

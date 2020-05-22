@@ -1,4 +1,4 @@
-# Word Search Kata in Vue.js
+# Word Search Kata in Vue.js [![Netlify Status](https://api.netlify.com/api/v1/badges/9af91479-d0ce-4b8c-873d-04bc6513a6d7/deploy-status)](https://app.netlify.com/sites/vue-js-word-search/deploys)
 ![screen-shot](/public/word-search-screen.png)
 
 ## Approach:
